@@ -1,181 +1,143 @@
-import React, { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { motion } from "framer-motion";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Wide Gadget Insurance</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #f4f7fb, #e6ecf5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .container {
+        background: #ffffff;
+        width: 95%;
+        max-width: 900px;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+    h1 {
+        text-align: center;
+        color: #1f3c88;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    .subtitle {
+        text-align: center;
+        color: #6b7280;
+        margin-bottom: 30px;
+    }
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    input, select {
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        font-size: 14px;
+        width: 100%;
+    }
+    input:focus, select:focus {
+        outline: none;
+        border-color: #1f3c88;
+    }
+    .full {
+        grid-column: span 2;
+    }
+    .section-title {
+        grid-column: span 2;
+        margin-top: 20px;
+        font-weight: 600;
+        color: #374151;
+        text-align: center;
+    }
+    button {
+        grid-column: span 2;
+        padding: 14px;
+        background-color: #1f3c88;
+        color: white;
+        font-weight: 600;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+        transition: 0.3s ease;
+    }
+    button:hover {
+        background-color: #162d66;
+    }
+    .footer-note {
+        text-align: center;
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 15px;
+    }
+    @media (max-width: 768px) {
+        form { grid-template-columns: 1fr; }
+        .full, .section-title, button { grid-column: span 1; }
+    }
+</style>
+</head>
+<body>
 
-export default function EnrollmentPortal() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    gadgetType: "",
-    brand: "",
-    model: "",
-    serialNumber: "",
-    plan: "",
-    cardName: "",
-    cardNumber: "",
-    expiry: "",
-    cvv: "",
-  });
+<div class="container">
+    <h1>World Wide Gadget Insurance</h1>
+    <p class="subtitle">Corporate Enrollment Portal – Secure Your Devices Globally</p>
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Enrollment Submitted Successfully!");
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      gadgetType: "",
-      brand: "",
-      model: "",
-      serialNumber: "",
-    });
-  };
+    <form onsubmit="submitForm(event)">
+        <input type="text" placeholder="Full Name" required class="full">
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-purple-100 flex items-center justify-center p-6">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="w-full max-w-3xl"
-      >
-        <Card className="rounded-2xl shadow-xl border-0">
-          <CardContent className="p-8">
-            <h1 className="text-3xl font-bold text-center text-blue-700 mb-2">
-              World Wide Gadget Insurance
-            </h1>
-            <p className="text-center text-gray-600 mb-6">
-              Secure your devices with global protection coverage.
-            </p>
+        <select required>
+            <option value="">Select Gadget Type</option>
+            <option>Smartphone</option>
+            <option>Laptop</option>
+            <option>Tablet</option>
+            <option>Smart TV</option>
+            <option>Gaming Console</option>
+        </select>
 
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="col-span-1 md:col-span-2">
-                <Input
-                  placeholder="Full Name"
-                  value={formData.fullName}
-                  onChange={(e) => handleChange("fullName", e.target.value)}
-                  required
-                />
-              </div>
+        <input type="text" placeholder="Brand" required>
+        <input type="text" placeholder="Model" required>
+        <input type="text" placeholder="Serial Number" required class="full">
 
-              <Input
-                placeholder="Email Address"
-                type="email"
-                value={formData.email}
-                onChange={(e) => handleChange("email", e.target.value)}
-                required
-              />
+        <select required class="full">
+            <option value="">Select Coverage Plan</option>
+            <option>Basic – $9.99/month</option>
+            <option>Premium – $19.99/month</option>
+            <option>Global Elite – $29.99/month</option>
+        </select>
 
-              <Input
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={(e) => handleChange("phone", e.target.value)}
-                required
-              />
+        <div class="section-title">Secure Payment Information</div>
 
-              <Select
-                value={formData.gadgetType}
-                onValueChange={(value) => handleChange("gadgetType", value)}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select Gadget Type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Smartphone">Smartphone</SelectItem>
-                  <SelectItem value="Laptop">Laptop</SelectItem>
-                  <SelectItem value="Tablet">Tablet</SelectItem>
-                  <SelectItem value="Smart TV">Smart TV</SelectItem>
-                  <SelectItem value="Gaming Console">Gaming Console</SelectItem>
-                </SelectContent>
-              </Select>
+        <input type="text" placeholder="Name on Card" required class="full">
+        <input type="text" placeholder="Card Number" required class="full">
+        <input type="text" placeholder="Expiry Date (MM/YY)" required>
+        <input type="text" placeholder="CVV" required>
 
-              <Input
-                placeholder="Brand"
-                value={formData.brand}
-                onChange={(e) => handleChange("brand", e.target.value)}
-                required
-              />
+        <button type="submit">Complete Enrollment & Pay</button>
+    </form>
 
-              <Input
-                placeholder="Model"
-                value={formData.model}
-                onChange={(e) => handleChange("model", e.target.value)}
-                required
-              />
+    <p class="footer-note">All transactions are encrypted and securely processed.</p>
+</div>
 
-              <Input
-                placeholder="Serial Number"
-                value={formData.serialNumber}
-                onChange={(e) => handleChange("serialNumber", e.target.value)}
-                required
-                className="col-span-1 md:col-span-2"
-              />
-
-              {/* Coverage Plan Selection */}
-              <Select
-                value={formData.plan}
-                onValueChange={(value) => handleChange("plan", value)}
-              >
-                <SelectTrigger className="col-span-1 md:col-span-2">
-                  <SelectValue placeholder="Select Coverage Plan" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Basic">Basic - $9.99/month</SelectItem>
-                  <SelectItem value="Premium">Premium - $19.99/month</SelectItem>
-                  <SelectItem value="Global Elite">Global Elite - $29.99/month</SelectItem>
-                </SelectContent>
-              </Select>
-
-              {/* Payment Section */}
-              <div className="col-span-1 md:col-span-2 mt-6">
-                <h2 className="text-xl font-semibold text-gray-700 mb-4 text-center">
-                  Secure Payment Information
-                </h2>
-              </div>
-
-              <Input
-                placeholder="Name on Card"
-                value={formData.cardName}
-                onChange={(e) => handleChange("cardName", e.target.value)}
-                required
-                className="col-span-1 md:col-span-2"
-              />
-
-              <Input
-                placeholder="Card Number"
-                value={formData.cardNumber}
-                onChange={(e) => handleChange("cardNumber", e.target.value)}
-                required
-                className="col-span-1 md:col-span-2"
-              />
-
-              <Input
-                placeholder="Expiry Date (MM/YY)"
-                value={formData.expiry}
-                onChange={(e) => handleChange("expiry", e.target.value)}
-                required
-              />
-
-              <Input
-                placeholder="CVV"
-                value={formData.cvv}
-                onChange={(e) => handleChange("cvv", e.target.value)}
-                required
-              />
-
-              <div className="col-span-1 md:col-span-2 flex justify-center mt-6">
-                <Button type="submit" className="px-10 py-3 rounded-2xl text-lg shadow-md">
-                  Complete Enrollment & Pay
-                </Button>
-              </div>
-            </form>
-          </CardContent>
-        </Card>
-      </motion.div>
-    </div>
-  );
+<script>
+function submitForm(event) {
+    event.preventDefault();
+    alert("Enrollment Submitted Successfully! (Demo Mode – No Real Payment Processed)");
 }
+</script>
+
+</body>
+</html>
