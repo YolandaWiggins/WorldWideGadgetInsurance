@@ -3,141 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World Wide Gadget Insurance</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Modern Fairytale Furnishings</title>
 <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-        font-family: 'Inter', sans-serif;
-        background: linear-gradient(135deg, #f4f7fb, #e6ecf5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
-    .container {
-        background: #ffffff;
-        width: 95%;
-        max-width: 900px;
-        padding: 40px;
-        border-radius: 16px;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-    }
-    h1 {
-        text-align: center;
-        color: #1f3c88;
-        font-size: 32px;
-        margin-bottom: 10px;
-    }
-    .subtitle {
-        text-align: center;
-        color: #6b7280;
-        margin-bottom: 30px;
-    }
-    form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-    input, select {
-        padding: 12px;
-        border-radius: 8px;
-        border: 1px solid #d1d5db;
-        font-size: 14px;
-        width: 100%;
-    }
-    input:focus, select:focus {
-        outline: none;
-        border-color: #1f3c88;
-    }
-    .full {
-        grid-column: span 2;
-    }
-    .section-title {
-        grid-column: span 2;
-        margin-top: 20px;
-        font-weight: 600;
-        color: #374151;
-        text-align: center;
-    }
-    button {
-        grid-column: span 2;
-        padding: 14px;
-        background-color: #1f3c88;
-        color: white;
-        font-weight: 600;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-top: 10px;
-        transition: 0.3s ease;
-    }
-    button:hover {
-        background-color: #162d66;
-    }
-    .footer-note {
-        text-align: center;
-        font-size: 12px;
-        color: #6b7280;
-        margin-top: 15px;
-    }
-    @media (max-width: 768px) {
-        form { grid-template-columns: 1fr; }
-        .full, .section-title, button { grid-column: span 1; }
-    }
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;color:#333}
+header{background:white;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,0.08);position:sticky;top:0;z-index:10}
+.logo{font-size:24px;font-weight:bold;color:#5a4bff}
+nav a{margin:0 15px;text-decoration:none;color:#333;font-weight:500;cursor:pointer}
+.hero{height:500px;background:url('bedroom.jpg') center/cover;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;padding:20px}
+.hero h1{font-size:56px;margin:0;text-shadow:0 5px 20px rgba(0,0,0,0.4)}
+.hero p{font-size:20px;margin:15px 0 25px}
+.hero button{padding:14px 28px;border:none;background:#5a4bff;color:white;font-size:16px;border-radius:8px;cursor:pointer}
+.section{padding:70px 40px;max-width:1200px;margin:auto}
+.section h2{text-align:center;margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px}
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,0.08);transition:transform .2s}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card-body{padding:20px}
+.card-body h3{margin-top:0}
+.card-body button{margin-top:10px;padding:10px 16px;border:none;background:#5a4bff;color:white;border-radius:6px;cursor:pointer}
+.products{display:none}
+.back{margin-bottom:20px;background:#5a4bff;color:white;border:none;padding:10px 18px;border-radius:6px;cursor:pointer}
+footer{background:#111;color:white;padding:40px 20px;text-align:center;margin-top:40px}
 </style>
 </head>
 <body>
-
-<div class="container">
-    <h1>World Wide Gadget Insurance</h1>
-    <p class="subtitle">Corporate Enrollment Portal – Secure Your Devices Globally</p>
-
-    <form onsubmit="submitForm(event)">
-        <input type="text" placeholder="Full Name" required class="full">
-        <input type="email" placeholder="Email Address" required>
-        <input type="tel" placeholder="Phone Number" required>
-
-        <select required>
-            <option value="">Select Gadget Type</option>
-            <option>Smartphone</option>
-            <option>Laptop</option>
-            <option>Tablet</option>
-            <option>Smart TV</option>
-            <option>Gaming Console</option>
-        </select>
-
-        <input type="text" placeholder="Brand" required>
-        <input type="text" placeholder="Model" required>
-        <input type="text" placeholder="Serial Number" required class="full">
-
-        <select required class="full">
-            <option value="">Select Coverage Plan</option>
-            <option>Basic – $9.99/month</option>
-            <option>Premium – $19.99/month</option>
-            <option>Global Elite – $29.99/month</option>
-        </select>
-
-        <div class="section-title">Secure Payment Information</div>
-
-        <input type="text" placeholder="Name on Card" required class="full">
-        <input type="text" placeholder="Card Number" required class="full">
-        <input type="text" placeholder="Expiry Date (MM/YY)" required>
-        <input type="text" placeholder="CVV" required>
-
-        <button type="submit">Complete Enrollment & Pay</button>
-    </form>
-
-    <p class="footer-note">All transactions are encrypted and securely processed.</p>
+<header>
+<div class="logo">Modern Fairytale Furnishings</div>
+<nav>
+<a onclick="showHome()">Home</a>
+<a onclick="scrollToCollections()">Collections</a>
+<a onclick="scrollToInsurance()">Protection Plans</a>
+</nav>
+</header>
+<section class="hero" id="homeHero">
+<h1>Design Your Dream Home</h1>
+<p>Luxury furnishings for every room of your story.</p>
+<button onclick="scrollToCollections()">Browse Collections</button>
+</section>
+<section class="section" id="collections">
+<h2>Shop By Room</h2>
+<div class="grid">
+<div class="card"><img src="bedroom.jpg"><div class="card-body"><h3>Bedroom</h3><p>Beds, dressers, nightstands and luxury sets.</p><button onclick="showCategory('bedroom')">Browse Bedroom</button></div></div>
+<div class="card"><img src="sofa.jpg"><div class="card-body"><h3>Living Room</h3><p>Sofas, sectionals, recliners and tables.</p><button onclick="showCategory('living')">Browse Living Room</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80"><div class="card-body"><h3>Dining Room</h3><p>Dining sets, chairs and elegant tables.</p><button onclick="showCategory('dining')">Browse Dining</button></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80"><div class="card-body"><h3>Home Theater</h3><p>Luxury recliners and media consoles.</p><button onclick="showCategory('theater')">Browse Theater</button></div></div>
 </div>
-
+</section>
+<section class="section products" id="productSection">
+<button class="back" onclick="showHome()">← Back to Collections</button>
+<h2 id="categoryTitle"></h2>
+<div class="grid" id="productGrid"></div>
+</section>
+<section class="section" id="protection">
+<h2>Furniture Protection Plans</h2>
+<div class="grid">
+<div class="card"><div class="card-body"><h3>GOOD</h3><p>$79</p><ul><li>Wear & Tear</li><li>Broken Frames</li><li>Spring Damage</li><li>Structural Repairs</li></ul></div></div>
+<div class="card"><div class="card-body"><h3>BETTER</h3><p>$109</p><ul><li>Everything in GOOD</li><li>Reclining Mechanisms</li><li>Manual Handles</li><li>Mechanical Failures</li></ul></div></div>
+<div class="card"><div class="card-body"><h3>BEST</h3><p>$149</p><ul><li>Everything in BETTER</li><li>Power Recliner Motors</li><li>Electrical Components</li><li>Control Panels</li><li>Priority Service</li></ul></div></div>
+</div>
+</section>
+<footer>
+<p>Modern Fairytale Furnishings</p>
+<p>Email: support@modernfairytalefurnishings.com</p>
+<p>Phone: (800) 555-FURN</p>
+<p>© 2026 Modern Fairytale Furnishings</p>
+</footer>
 <script>
-function submitForm(event) {
-    event.preventDefault();
-    alert("Enrollment Submitted Successfully! (Demo Mode – No Real Payment Processed)");
+const products={
+  bedroom:[
+    {name:'Luxury King Bed', price:'$1299', img:'bed186025_main.jpg'},
+    {name:'Modern Nightstand', price:'$199', img:'https://images.unsplash.com/photo-1589872332562-31a46b4bb2b5?auto=format&fit=crop&w=800&q=80'},
+    {name:'Wood Dresser', price:'$599', img:'https://images.unsplash.com/photo-1600185360838-3d97f6b15c18?auto=format&fit=crop&w=800&q=80'}
+  ],
+  living:[
+    {name:'Leather Sofa', price:'$999', img:'sofa.jpg'},
+    {name:'Recliner Chair', price:'$499', img:'sofa.jpg'},
+    {name:'Coffee Table', price:'$249', img:'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=800&q=80'}
+  ],
+  dining:[
+    {name:'Dining Table Set', price:'$899', img:'https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=800&q=80'},
+    {name:'Dining Chairs', price:'$299', img:'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80'},
+    {name:'Buffet Cabinet', price:'$699', img:'https://images.unsplash.com/photo-1616627781431-23b776aad449?auto=format&fit=crop&w=800&q=80'}
+  ],
+  theater:[
+    {name:'Power Recliner', price:'$799', img:'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80'},
+    {name:'Theater Seating Row', price:'$1999', img:'https://images.unsplash.com/photo-1598300053653-63d9c8a9e9a0?auto=format&fit=crop&w=800&q=80'},
+    {name:'Media Console', price:'$499', img:'https://images.unsplash.com/photo-1582582429416-9f33f3c7d2e3?auto=format&fit=crop&w=800&q=80'}
+  ]
+};
+
+function showCategory(cat){
+  const grid=document.getElementById('productGrid');
+  grid.innerHTML='';
+  products[cat].forEach(p=>{
+    const div=document.createElement('div');
+    div.className='card';
+    div.innerHTML=`<img src='${p.img}'><div class='card-body'><h3>${p.name}</h3><p>${p.price}</p><button>Add to Cart</button></div>`;
+    grid.appendChild(div);
+  });
+  document.getElementById('categoryTitle').innerText=cat.charAt(0).toUpperCase()+cat.slice(1)+' Furniture';
+  document.getElementById('productSection').style.display='block';
+  document.getElementById('collections').style.display='none';
+  document.getElementById('homeHero').style.display='none';
+}
+
+function showHome(){
+  document.getElementById('productSection').style.display='none';
+  document.getElementById('collections').style.display='block';
+  document.getElementById('homeHero').style.display='flex';
+}
+
+function scrollToCollections(){
+  document.getElementById('collections').scrollIntoView({behavior:'smooth'});
+}
+
+function scrollToInsurance(){
+  document.getElementById('protection').scrollIntoView({behavior:'smooth'});
 }
 </script>
-
 </body>
 </html>
